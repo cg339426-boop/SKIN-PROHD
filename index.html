@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKINS PRO HD</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #ffffff;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
+            padding: 30px 15px;
+            text-align: center;
+            border-bottom: 4px solid #ffcc00;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        header p {
+            font-size: 11px;
+            color: #888888;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 0 20px;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .menu-btn {
+            background: linear-gradient(135deg, #252525 0%, #161616 100%);
+            color: #ffffff;
+            border: 1px solid #3a3a3a;
+            border-left: 6px solid #ffcc00; 
+            padding: 16px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.1), 0 6px 12px rgba(0,0,0,0.5);
+            transition: all 0.15s ease;
+        }
+
+        .menu-btn:active {
+            transform: translateY(3px);
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #161616 0%, #111111 100%);
+        }
+
+        .menu-btn .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-btn .icon-arrow {
+            color: #ffcc00;
+            font-size: 22px;
+        }
+
+        .btn-back-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 15px 15px 15px;
+            display: none;
+        }
+
+        .btn-back {
+            background-color: #1e1e1e;
+            color: #ffcc00;
+            border: 1px solid #3a3a3a;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            padding: 15px;
+            display: none; 
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #161616;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            border: 1px solid #2a2a2a;
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 210px;
+            background-color: #222222;
+            position: relative;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #ffcc00;
+            color: #000000;
+            padding: 5px 12px;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-info {
+            padding: 18px;
+        }
+
+        .card-info h3 {
+            font-size: 18px;
+            margin-bottom: 14px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+            color: #000000;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(255, 153, 0, 0.2);
+        }
+
+        #loading {
+            text-align: center;
+            color: #ffcc00;
+            font-weight: bold;
+            padding: 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span class="material-icons" style="font-size: 32px;">local_shipping</span> SKINS PRO HD</h1>
+        <p>PREMIUM TEMPLATES FOR TRUCKERS OF EUROPE 3</p>
+    </header>
+
+    <div id="loading">SINTONIZANDO MOTOR DE DATOS...</div>
+
+    <div class="menu-container" id="menuCategorias" style="display: none;">
+        <button class="menu-btn" onclick="mostrarCategoria('paises')">
+            <div class="btn-content">
+                <span class="material-icons" style="color: #ffcc00;">public</span>
+                <span>Skins de Países</span>
+            </div>
+            <span class="material-icons icon-arrow">chevron_right</span>
+        </button>
+
+        <button class="menu-btn" onclick="mostrarCategoria('empresas')">
+            <div class="btn-content">
+                <span class="material-icons" style="color: #ffcc00;">business</span>
+                <span>Empresas Reales</span>
+            </div>
+            <span class="material-icons icon-arrow">chevron_right</span>
+        </button>
+
+        <button class="menu-btn" onclick="mostrarCategoria('anime')">
+            <div class="btn-content">
+                <span class="material-icons" style="color: #ffcc00;">palette</span>
+                <span>Modelos Anime</span>
+            </div>
+            <span class="material-icons icon-arrow">chevron_right</span>
+        </button>
+    </div>
+
+    <div class="btn-back-container" id="containerBotonVolver">
+        <button class="btn-back" onclick="volverAlMenu()">
+            <span class="material-icons">arrow_back</span> Volver al Menú
+        </button>
+    </div>
+
+    <div class="container" id="catalogoSkins"></div>
+
+    <script>
+        // ID de tu Google Sheet real ya vinculado
+        const SHEET_ID = '1OZvXWbNlcGxyeBU2soZvvSWnVNoguP17AIO20lYD0rE';
+        const SHEET_TITLE = 'Hoja 1'; 
+        const URL_SHEET = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_TITLE}`;
+
+        let listaSkins = [];
+
+        async function cargarSkinsDesdeSheets() {
+            try {
+                const respuesta = await fetch(URL_SHEET);
+                const textoData = await respuesta.text();
+                
+                const jsonLimpio = JSON.parse(textoData.substr(47).slice(0, -2));
+                const filas = jsonLimpio.table.rows;
+
+                listaSkins = filas.map(fila => {
+                    // Si la celda de la imagen está vacía, le ponemos un fondo de camión premium por defecto
+                    let imgMuestra = fila.c[2] ? fila.c[2].v : 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
+                    if (imgMuestra.trim() === "") {
+                        imgMuestra = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
+                    }
+
+                    return {
+                        camion: fila.c[0] ? fila.c[0].v : 'Camión',
+                        nombre: fila.c[1] ? fila.c[1].v : 'Skin Especial',
+                        fotoMuestra: imgMuestra,
+                        linkDescarga: fila.c[3] ? fila.c[3].v : '#',
+                        categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros'
+                    };
+                });
+                
+                // Ocultamos el letrero de carga y mostramos el menú principal
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('menuCategorias').style.display = 'flex';
+            } catch (error) {
+                console.error("Error conectando al Sheets:", error);
+                document.getElementById('loading').innerText = "ERROR EN CARRETERA: Verifica los permisos de tu Sheets.";
+            }
+        }
+
+        // Ejecuta la conexión inmediata
+        cargarSkinsDesdeSheets();
+
+        function mostrarCategoria(catSeleccionada) {
+            document.getElementById('menuCategorias').style.display = 'none';
+            document.getElementById('containerBotonVolver').style.display = 'block';
+            
+            const contenedor = document.getElementById('catalogoSkins');
+            contenedor.innerHTML = ''; 
+            contenedor.style.display = 'grid';
+
+            const skinsFiltradas = listaSkins.filter(skin => skin.categoria === catSeleccionada);
+
+            if(skinsFiltradas.length === 0) {
+                contenedor.innerHTML = `<div style="text-align:center; padding:40px; color:#666; font-size:14px;">PRÓXIMAMENTE MÁS PIELES EN ESTA CATEGORÍA...</div>`;
+                return;
+            }
+
+            skinsFiltradas.forEach(skin => {
+                const tarjetaHTML = `
+                    <div class="card">
+                        <div class="card-img-container">
+                            <span class="badge">${skin.camion}</span>
+                            <img src="${skin.fotoMuestra}" alt="Muestra">
+                        </div>
+                        <div class="card-info">
+                            <h3>${skin.nombre}</h3>
+                            <a href="#" class="btn-download" onclick="ejecutarDescarga('${skin.linkDescarga}')">
+                                <span class="material-icons">cloud_download</span> DESCARGAR PLANTILLA HD
+                            </a>
+                        </div>
+                    </div>
+                `;
+                contenedor.innerHTML += tarjetaHTML;
+            });
+        }
+
+        function volverAlMenu() {
+            document.getElementById('containerBotonVolver').style.display = 'none';
+            document.getElementById('catalogoSkins').style.display = 'none';
+            document.getElementById('menuCategorias').style.display = 'flex';
+        }
+
+        function ejecutarDescarga(url) {
+            alert("¡ENLACE ENCRIPTADO EN ALTA DEFINICIÓN!\nAbriendo servidor de descarga protegida.");
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
