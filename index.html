@@ -16,28 +16,26 @@
         body {
             background-color: #0c0c0c;
             color: #ffffff;
-            padding-bottom: 40px;
+            padding-bottom: 80px; /* Espacio para el banner fijo inferior */
         }
 
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
-            padding: 30px 15px;
+            padding: 25px 15px;
             text-align: center;
             border-bottom: 4px solid #ffcc00;
             box-shadow: 0 5px 20px rgba(0,0,0,0.7);
-            margin-bottom: 35px;
+            margin-bottom: 20px;
         }
 
         header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 2px;
             color: #ffcc00;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
         header p {
@@ -45,9 +43,48 @@
             color: #888888;
             margin-top: 6px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
+        /* CONTENEDORES DE ANUNCIOS */
+        .ads-banner {
+            width: 100%;
+            max-width: 468px;
+            margin: 15px auto;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ads-sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111111;
+            border-top: 2px solid #ffcc00;
+            text-align: center;
+            padding: 5px 0;
+            z-index: 9999;
+        }
+
+        /* SISTEMA DE VISTAS (Se ocultan y muestran con JS) */
+        .vista {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .vista-activa {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* VISTA 1: MENÚ PRINCIPAL */
         .menu-container {
             display: flex;
             flex-direction: column;
@@ -66,19 +103,11 @@
             border-radius: 10px;
             font-weight: bold;
             font-size: 15px;
-            text-align: left;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.1), 0 6px 12px rgba(0,0,0,0.5);
-            transition: all 0.15s ease;
-        }
-
-        .menu-btn:active {
-            transform: translateY(3px);
-            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #161616 0%, #111111 100%);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
         }
 
         .menu-btn .btn-content {
@@ -87,16 +116,11 @@
             gap: 12px;
         }
 
-        .menu-btn .icon-arrow {
-            color: #ffcc00;
-            font-size: 22px;
-        }
-
+        /* NAVEGACIÓN Y BOTÓN VOLVER */
         .btn-back-container {
             max-width: 500px;
             margin: 0 auto;
             padding: 0 15px 15px 15px;
-            display: none;
         }
 
         .btn-back {
@@ -106,67 +130,97 @@
             padding: 10px 18px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 13px;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        .container {
-            padding: 15px;
-            display: none; 
+        /* VISTA 2: LISTADO DE SKINS (TARJETAS REDUCIDAS) */
+        .grid-skins {
+            display: grid;
             grid-template-columns: 1fr;
-            gap: 25px;
+            gap: 20px;
             max-width: 500px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
-        .card {
+        .skin-item-card {
             background-color: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            gap: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        .skin-item-thumb {
+            width: 90px;
+            height: 65px;
+            background-color: #222;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .skin-item-info h4 {
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .skin-item-info p {
+            font-size: 11px;
+            color: #ffcc00;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* VISTA 3: DETALLE DE LA SKIN (PANTALLA DE DESCARGA) */
+        .detalle-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .detalle-card {
+            background-color: #161616;
+            border: 1px solid #2a2a2a;
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-            border: 1px solid #2a2a2a;
         }
 
-        .card-img-container {
+        .detalle-img-box {
             width: 100%;
-            height: 210px;
-            background-color: #222222;
+            height: 230px;
             position: relative;
         }
 
-        .card-img-container img {
+        .detalle-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background-color: #ffcc00;
-            color: #000000;
-            padding: 5px 12px;
-            font-size: 10px;
-            font-weight: 800;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .detalle-info {
+            padding: 20px;
         }
 
-        .card-info {
-            padding: 18px;
+        .detalle-info h2 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 6px;
         }
 
-        .card-info h3 {
-            font-size: 18px;
-            margin-bottom: 14px;
-            color: #ffffff;
-            font-weight: 700;
+        .detalle-info p {
+            font-size: 13px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .btn-download {
@@ -177,12 +231,35 @@
             background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
             color: #000000;
             text-decoration: none;
-            padding: 14px;
+            padding: 16px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 15px;
             text-align: center;
             box-shadow: 0 5px 10px rgba(255, 153, 0, 0.2);
+            cursor: pointer;
+        }
+
+        /* CAJA DEL CONTADOR DE SEGUNDOS */
+        .contador-box {
+            background-color: #222;
+            border: 1px solid #ffcc00;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .contador-texto {
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .contador-numero {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00;
         }
 
         #loading {
@@ -190,72 +267,161 @@
             color: #ffcc00;
             font-weight: bold;
             padding: 20px;
-            font-size: 14px;
-            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><span class="material-icons" style="font-size: 32px;">local_shipping</span> SKINS PRO HD</h1>
+        <h1><span class="material-icons" style="font-size: 30px;">local_shipping</span> SKINS PRO HD</h1>
         <p>PREMIUM TEMPLATES FOR TRUCKERS OF EUROPE 3</p>
     </header>
 
     <div id="loading">SINTONIZANDO MOTOR DE DATOS...</div>
 
-    <div class="menu-container" id="menuCategorias" style="display: none;">
-        <button class="menu-btn" onclick="mostrarCategoria('paises')">
-            <div class="btn-content">
-                <span class="material-icons" style="color: #ffcc00;">public</span>
-                <span>Skins de Países</span>
-            </div>
-            <span class="material-icons icon-arrow">chevron_right</span>
-        </button>
+    <!-- =======================================================
+         VISTA 1: MENÚ PRINCIPAL (CATEGORÍAS)
+         ======================================================= -->
+    <div id="vistaMenu" class="vista">
+        <div class="menu-container">
+            <button class="menu-btn" onclick="mostrarCategoria('paises')">
+                <div class="btn-content">
+                    <span class="material-icons" style="color: #ffcc00;">public</span>
+                    <span>Skins de Países</span>
+                </div>
+                <span class="material-icons icon-arrow">chevron_right</span>
+            </button>
 
-        <button class="menu-btn" onclick="mostrarCategoria('empresas')">
-            <div class="btn-content">
-                <span class="material-icons" style="color: #ffcc00;">business</span>
-                <span>Empresas Reales</span>
-            </div>
-            <span class="material-icons icon-arrow">chevron_right</span>
-        </button>
+            <button class="menu-btn" onclick="mostrarCategoria('empresas')">
+                <div class="btn-content">
+                    <span class="material-icons" style="color: #ffcc00;">business</span>
+                    <span>Empresas Reales</span>
+                </div>
+                <span class="material-icons icon-arrow">chevron_right</span>
+            </button>
 
-        <button class="menu-btn" onclick="mostrarCategoria('anime')">
-            <div class="btn-content">
-                <span class="material-icons" style="color: #ffcc00;">palette</span>
-                <span>Modelos Anime</span>
-            </div>
-            <span class="material-icons icon-arrow">chevron_right</span>
-        </button>
+            <button class="menu-btn" onclick="mostrarCategoria('anime')">
+                <div class="btn-content">
+                    <span class="material-icons" style="color: #ffcc00;">palette</span>
+                    <span>Modelos Anime</span>
+                </div>
+                <span class="material-icons icon-arrow">chevron_right</span>
+            </button>
+        </div>
+
+        <!-- BANNER DEBAJO DEL MENÚ PRINCIPAL (320x50 EN VIVO) -->
+        <div class="ads-banner">
+            <script>
+                atOptions = {
+                    'key' : '20622febebc58aceaadca806e30f7816',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
+        </div>
     </div>
 
-    <div class="btn-back-container" id="containerBotonVolver">
-        <button class="btn-back" onclick="volverAlMenu()">
-            <span class="material-icons">arrow_back</span> Volver al Menú
-        </button>
+
+    <!-- =======================================================
+         VISTA 2: LISTADO DE SKINS DE UNA CATEGORÍA
+         ======================================================= -->
+    <div id="vistaCategoria" class="vista">
+        <div class="btn-back-container">
+            <button class="btn-back" onclick="irAVista('vistaMenu')">
+                <span class="material-icons">arrow_back</span> Volver al Menú
+            </button>
+        </div>
+
+        <div class="grid-skins" id="listaSkinsContenedor"></div>
+        
+        <!-- BANNER ADICIONAL DENTRO DEL LISTADO (320x50 EN VIVO) -->
+        <div class="ads-banner">
+            <script>
+                atOptions = {
+                    'key' : '20622febebc58aceaadca806e30f7816',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
+        </div>
     </div>
 
-    <div class="container" id="catalogoSkins"></div>
 
+    <!-- =======================================================
+         VISTA 3: PANTALLA DE DETALLE (PANTALLA DE DESCARGA FINAL)
+         ======================================================= -->
+    <div id="vistaDetalle" class="vista">
+        <div class="btn-back-container">
+            <button class="btn-back" id="btnVolverCat">
+                <span class="material-icons">arrow_back</span> Volver al Listado
+            </button>
+        </div>
+
+        <!-- BANNER MEDIANO CUADRADO EN LA ZONA DE DESCARGA (300x250 EN VIVO) -->
+        <div class="ads-banner" style="min-height: 260px;">
+            <script>
+                atOptions = {
+                    'key' : '26374dcab12f0a151fa1869a67a237cd',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/26374dcab12f0a151fa1869a67a237cd/invoke.js"></script>
+        </div>
+
+        <div class="detalle-container" id="detalleSkinContenedor"></div>
+    </div>
+
+
+    <!-- =======================================================
+         ANUNCIO FIJO INFERIOR (320x50 EN VIVO COMPARTIDO EN PIE DE PÁGINA)
+         ======================================================= -->
+    <div class="ads-sticky-footer">
+        <script>
+            atOptions = {
+                'key' : '20622febebc58aceaadca806e30f7816',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
+    </div>
+
+
+    <!-- =======================================================
+         LÓGICA DEL MOTOR JAVASCRIPT
+         ======================================================= -->
     <script>
-        // ID de tu Google Sheet real ya vinculado
         const SHEET_ID = '1OZvXWbNlcGxyeBU2soZvvSWnVNoguP17AIO20lYD0rE';
         const SHEET_TITLE = 'Hoja 1'; 
         const URL_SHEET = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_TITLE}`;
 
         let listaSkins = [];
+        let categoriaActual = '';
+
+        function irAVista(idVista) {
+            document.querySelectorAll('.vista').forEach(v => v.classList.remove('vista-activa'));
+            document.getElementById(idVista).classList.add('vista-activa');
+        }
 
         async function cargarSkinsDesdeSheets() {
             try {
                 const respuesta = await fetch(URL_SHEET);
                 const textoData = await respuesta.text();
-                
                 const jsonLimpio = JSON.parse(textoData.substr(47).slice(0, -2));
                 const filas = jsonLimpio.table.rows;
 
                 listaSkins = filas.map(fila => {
-                    // Si la celda de la imagen está vacía, le ponemos un fondo de camión premium por defecto
                     let imgMuestra = fila.c[2] ? fila.c[2].v : 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
                     if (imgMuestra.trim() === "") {
                         imgMuestra = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
@@ -265,66 +431,109 @@
                         camion: fila.c[0] ? fila.c[0].v : 'Camión',
                         nombre: fila.c[1] ? fila.c[1].v : 'Skin Especial',
                         fotoMuestra: imgMuestra,
-                        linkDescarga: fila.c[3] ? fila.c[3].v : '#',
+                        linkDescarga: fila.c[5] ? fila.c[5].v : '#', // Lee la columna F limpia de Google Sheets
                         categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros'
                     };
                 });
                 
-                // Ocultamos el letrero de carga y mostramos el menú principal
                 document.getElementById('loading').style.display = 'none';
-                document.getElementById('menuCategorias').style.display = 'flex';
+                irAVista('vistaMenu');
             } catch (error) {
-                console.error("Error conectando al Sheets:", error);
-                document.getElementById('loading').innerText = "ERROR EN CARRETERA: Verifica los permisos de tu Sheets.";
+                console.error("Error:", error);
+                document.getElementById('loading').innerText = "ERROR AL SINTONIZAR DATOS.";
             }
         }
 
-        // Ejecuta la conexión inmediata
         cargarSkinsDesdeSheets();
 
         function mostrarCategoria(catSeleccionada) {
-            document.getElementById('menuCategorias').style.display = 'none';
-            document.getElementById('containerBotonVolver').style.display = 'block';
-            
-            const contenedor = document.getElementById('catalogoSkins');
+            categoriaActual = catSeleccionada;
+            const contenedor = document.getElementById('listaSkinsContenedor');
             contenedor.innerHTML = ''; 
-            contenedor.style.display = 'grid';
-
+            
             const skinsFiltradas = listaSkins.filter(skin => skin.categoria === catSeleccionada);
 
             if(skinsFiltradas.length === 0) {
-                contenedor.innerHTML = `<div style="text-align:center; padding:40px; color:#666; font-size:14px;">PRÓXIMAMENTE MÁS PIELES EN ESTA CATEGORÍA...</div>`;
+                contenedor.innerHTML = `<div style="text-align:center; padding:40px; color:#666;">PRÓXIMAMENTE MÁS PIELES...</div>`;
+                irAVista('vistaCategoria');
                 return;
             }
 
-            skinsFiltradas.forEach(skin => {
-                const tarjetaHTML = `
-                    <div class="card">
-                        <div class="card-img-container">
-                            <span class="badge">${skin.camion}</span>
-                            <img src="${skin.fotoMuestra}" alt="Muestra">
-                        </div>
-                        <div class="card-info">
-                            <h3>${skin.nombre}</h3>
-                            <a href="#" class="btn-download" onclick="ejecutarDescarga('${skin.linkDescarga}')">
-                                <span class="material-icons">cloud_download</span> DESCARGAR PLANTILLA HD
-                            </a>
+            skinsFiltradas.forEach((skin, index) => {
+                const itemHTML = `
+                    <div class="skin-item-card" onclick="verDetalleSkin('${catSeleccionada}', ${index})">
+                        <img src="${skin.fotoMuestra}" class="skin-item-thumb" alt="Thumb">
+                        <div class="skin-item-info">
+                            <h4>${skin.nombre}</h4>
+                            <p>${skin.camion}</p>
                         </div>
                     </div>
                 `;
-                contenedor.innerHTML += tarjetaHTML;
+                contenedor.innerHTML += itemHTML;
             });
+
+            irAVista('vistaCategoria');
         }
 
-        function volverAlMenu() {
-            document.getElementById('containerBotonVolver').style.display = 'none';
-            document.getElementById('catalogoSkins').style.display = 'none';
-            document.getElementById('menuCategorias').style.display = 'flex';
+        function verDetalleSkin(cat, index) {
+            const skinsFiltradas = listaSkins.filter(skin => skin.categoria === cat);
+            const skin = skinsFiltradas[index];
+            
+            document.getElementById('btnVolverCat').onclick = function() {
+                mostrarCategoria(cat);
+            };
+
+            const contenedor = document.getElementById('detalleSkinContenedor');
+            contenedor.innerHTML = `
+                <div class="detalle-card">
+                    <div class="detalle-img-box">
+                        <img src="${skin.fotoMuestra}" alt="Camión Completo">
+                    </div>
+                    <div class="detalle-info">
+                        <h2>${skin.nombre}</h2>
+                        <p>Modelo: ${skin.camion}</p>
+                        
+                        <button class="btn-download" id="btnIniciarFlujoDescarga" onclick="iniciarContador('${skin.linkDescarga}')">
+                            <span class="material-icons">cloud_download</span> DESCARGAR PLANTILLA HD
+                        </button>
+
+                        <div class="contador-box" id="cajaContador">
+                            <p class="contador-texto">Verificando servidores seguros... Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            irAVista('vistaDetalle');
         }
 
-        function ejecutarDescarga(url) {
-            alert("¡ENLACE ENCRIPTADO EN ALTA DEFINICIÓN!\nAbriendo servidor de descarga protegida.");
-            window.open(url, '_blank');
+        // FUNCIÓN DEL CRONÓMETRO CON TU DIRECT LINK INYECTADO
+        function iniciarContador(urlDescarga) {
+            // Se abre de forma obligatoria tu Direct Link de Adsterra en una pestaña nueva
+            window.open('https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea', '_blank'); 
+
+            const boton = document.getElementById('btnIniciarFlujoDescarga');
+            const cajaContador = document.getElementById('cajaContador');
+            const numeroContador = document.getElementById('segundosAviso');
+            
+            boton.style.display = 'none'; 
+            cajaContador.style.display = 'block'; 
+            
+            let tiempoRestante = 6;
+
+            const intervalo = setInterval(() => {
+                tiempoRestante--;
+                numeroContador.innerText = tiempoRestante;
+
+                if (tiempoRestante <= 0) {
+                    clearInterval(intervalo);
+                    
+                    // Al finalizar los 6 segundos, se ejecuta la descarga directa sin pedir correos
+                    window.location.href = urlDescarga;
+
+                    cajaContador.innerHTML = `<p class="contador-texto" style="color: #00ff00; font-weight: bold;">¡DESCARGA COMPLETADA!</p>`;
+                }
+            }, 1000);
         }
     </script>
 </body>
