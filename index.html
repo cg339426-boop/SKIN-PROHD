@@ -232,6 +232,8 @@
             text-align: center;
             box-shadow: 0 5px 10px rgba(255, 153, 0, 0.2);
             cursor: pointer;
+            width: 100%;
+            border: none;
         }
 
         .contador-box {
@@ -273,7 +275,6 @@
 
     <div id="loading">SINTONIZANDO MOTOR DE DATOS...</div>
 
-    <!-- VISTA 1: MENÚ PRINCIPAL -->
     <div id="vistaMenu" class="vista">
         <div class="menu-container">
             <button class="menu-btn" onclick="mostrarCategoria('paises')">
@@ -315,7 +316,6 @@
         </div>
     </div>
 
-    <!-- VISTA 2: LISTADO DE SKINS -->
     <div id="vistaCategoria" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" onclick="irAVista('vistaMenu')">
@@ -339,7 +339,6 @@
         </div>
     </div>
 
-    <!-- VISTA 3: DETALLE DE LA SKIN -->
     <div id="vistaDetalle" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" id="btnVolverCat">
@@ -363,7 +362,6 @@
         <div class="detalle-container" id="detalleSkinContenedor"></div>
     </div>
 
-    <!-- ANUNCIO FIJO INFERIOR -->
     <div class="ads-sticky-footer">
         <script>
             atOptions = {
@@ -377,7 +375,6 @@
         <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
     </div>
 
-    <!-- IFRAME OCULTO (Para descargar sin romper el catálogo) -->
     <iframe id="iframeDescargaOculto" style="display:none;"></iframe>
 
     <script>
@@ -477,10 +474,12 @@
                         </button>
 
                         <div class="contador-box" id="cajaContador">
-                            <p class="contador-texto" id="cuerpoMensaje">
-                                Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
-                                Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
-                            </p>
+                            <div id="cuerpoMensaje">
+                                <p class="contador-texto">
+                                    Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
+                                    Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -489,27 +488,38 @@
             irAVista('vistaDetalle');
         }
 
-        // NUEVO SISTEMA ANTITRAMPA CON IFRAME INCORPORADO
+        // SISTEMA REPARADO DE RESPUESTA AUTOMÁTICA Y REINTENTOS
         function iniciarContador(urlDescarga) {
             const boton = document.getElementById('btnIniciarFlujoDescarga');
             const cajaContador = document.getElementById('cajaContador');
-            const numeroContador = document.getElementById('segundosAviso');
             const cuerpoMensaje = document.getElementById('cuerpoMensaje');
             
-            // 1. Abrir anuncio en pestaña nueva
-            const ventanaAnuncio = window.open('https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea', '_blank'); 
+            // Forzar el reinicio completo de la interfaz del contador antes de disparar
+            cuerpoMensaje.innerHTML = `
+                <p class="contador-texto">
+                    Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
+                    Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                </p>
+            `;
 
-            // Mostrar el contador inmediatamente en tu catálogo
-            boton.style.display = 'none'; 
+            if (boton) boton.style.display = 'none'; 
             cajaContador.style.display = 'block'; 
             
+            // Disparar tu Direct Link en pestaña nueva
+            const urlAnuncio = 'https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea';
+            const ventanaAnuncio = window.open(urlAnuncio, '_blank'); 
+
             let tiempoRestante = 6;
 
             const intervalo = setInterval(() => {
                 tiempoRestante--;
-                numeroContador.innerText = tiempoRestante;
+                
+                const numeroActualizado = document.getElementById('segundosAviso');
+                if (numeroActualizado) {
+                    numeroActualizado.innerText = tiempoRestante;
+                }
 
-                // SISTEMA ANTITRAMPA: Si cerró la pestaña del anuncio antes de que termine el tiempo
+                // DETECTOR ANTITRAMPA OPTIMIZADO
                 if (ventanaAnuncio && ventanaAnuncio.closed && tiempoRestante > 0) {
                     clearInterval(intervalo);
                     cuerpoMensaje.innerHTML = `
@@ -517,16 +527,16 @@
                         <span style="color:#ff3333; font-weight:bold; font-size:15px;">¡DESCARGA CANCELADA!</span><br>
                         Debes ver el anuncio completo por 6 segundos para reclamar la skin.
                         <br><br>
-                        <button class="btn-download" style="margin-top:10px; padding:10px;" onclick="reintentarFlujo('${urlDescarga}')">Intentar de nuevo</button>
+                        <button class="btn-download" style="margin-top:10px; padding:12px; background: #ffcc00; color:#000;" onclick="reintentarFlujo('${urlDescarga}')">Intentar de nuevo</button>
                     `;
                     return;
                 }
 
-                // Si se cumple el tiempo exitosamente con el anuncio abierto
+                // RECOMPENSA COMPLETA AL LLEGAR A CERO
                 if (tiempoRestante <= 0) {
                     clearInterval(intervalo);
                     
-                    // DESCARGA INTELIGENTE SEGURA: Usa el iframe oculto en vez de romper la página
+                    // Descarga directa e invisible usando el iframe seguro
                     document.getElementById('iframeDescargaOculto').src = urlDescarga;
 
                     cuerpoMensaje.innerHTML = `
@@ -538,10 +548,15 @@
             }, 1000);
         }
 
+        // CONTROLADOR DE REINTENTO SIN TRABAS EN EL NAVEGADOR
         function reintentarFlujo(urlDescarga) {
-            const contenedorBox = document.getElementById('cajaContador');
-            contenedorBox.style.display = 'none';
-            iniciarContador(urlDescarga);
+            const cajaContador = document.getElementById('cajaContador');
+            // Escondemos la caja un instante para forzar al navegador a desbloquear la acción de clic
+            cajaContador.style.display = 'none';
+            
+            setTimeout(() => {
+                iniciarContador(urlDescarga);
+            }, 150);
         }
     </script>
 </body>
