@@ -16,7 +16,7 @@
         body {
             background-color: #0c0c0c;
             color: #ffffff;
-            padding-bottom: 80px; /* Espacio para el banner fijo inferior */
+            padding-bottom: 80px; 
         }
 
         header {
@@ -45,7 +45,6 @@
             text-transform: uppercase;
         }
 
-        /* CONTENEDORES DE ANUNCIOS */
         .ads-banner {
             width: 100%;
             max-width: 468px;
@@ -69,7 +68,6 @@
             z-index: 9999;
         }
 
-        /* SISTEMA DE VISTAS (Se ocultan y muestran con JS) */
         .vista {
             display: none;
             animation: fadeIn 0.3s ease-in-out;
@@ -84,7 +82,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* VISTA 1: MENÚ PRINCIPAL */
         .menu-container {
             display: flex;
             flex-direction: column;
@@ -116,7 +113,6 @@
             gap: 12px;
         }
 
-        /* NAVEGACIÓN Y BOTÓN VOLVER */
         .btn-back-container {
             max-width: 500px;
             margin: 0 auto;
@@ -136,7 +132,6 @@
             gap: 6px;
         }
 
-        /* VISTA 2: LISTADO DE SKINS (TARJETAS REDUCIDAS) */
         .grid-skins {
             display: grid;
             grid-template-columns: 1fr;
@@ -179,7 +174,6 @@
             text-transform: uppercase;
         }
 
-        /* VISTA 3: DETALLE DE LA SKIN (PANTALLA DE DESCARGA) */
         .detalle-container {
             max-width: 500px;
             margin: 0 auto;
@@ -240,7 +234,6 @@
             cursor: pointer;
         }
 
-        /* CAJA DEL CONTADOR DE SEGUNDOS */
         .contador-box {
             background-color: #222;
             border: 1px solid #ffcc00;
@@ -252,12 +245,13 @@
         }
 
         .contador-texto {
-            font-size: 13px;
+            font-size: 14px;
             color: #fff;
+            line-height: 1.4;
         }
 
         .contador-numero {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: #ffcc00;
         }
@@ -279,9 +273,7 @@
 
     <div id="loading">SINTONIZANDO MOTOR DE DATOS...</div>
 
-    <!-- =======================================================
-         VISTA 1: MENÚ PRINCIPAL (CATEGORÍAS)
-         ======================================================= -->
+    <!-- VISTA 1: MENÚ PRINCIPAL -->
     <div id="vistaMenu" class="vista">
         <div class="menu-container">
             <button class="menu-btn" onclick="mostrarCategoria('paises')">
@@ -309,7 +301,6 @@
             </button>
         </div>
 
-        <!-- BANNER DEBAJO DEL MENÚ PRINCIPAL (320x50 EN VIVO) -->
         <div class="ads-banner">
             <script>
                 atOptions = {
@@ -324,10 +315,7 @@
         </div>
     </div>
 
-
-    <!-- =======================================================
-         VISTA 2: LISTADO DE SKINS DE UNA CATEGORÍA
-         ======================================================= -->
+    <!-- VISTA 2: LISTADO DE SKINS -->
     <div id="vistaCategoria" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" onclick="irAVista('vistaMenu')">
@@ -337,7 +325,6 @@
 
         <div class="grid-skins" id="listaSkinsContenedor"></div>
         
-        <!-- BANNER ADICIONAL DENTRO DEL LISTADO (320x50 EN VIVO) -->
         <div class="ads-banner">
             <script>
                 atOptions = {
@@ -352,10 +339,7 @@
         </div>
     </div>
 
-
-    <!-- =======================================================
-         VISTA 3: PANTALLA DE DETALLE (PANTALLA DE DESCARGA FINAL)
-         ======================================================= -->
+    <!-- VISTA 3: DETALLE DE LA SKIN -->
     <div id="vistaDetalle" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" id="btnVolverCat">
@@ -363,7 +347,6 @@
             </button>
         </div>
 
-        <!-- BANNER MEDIANO CUADRADO EN LA ZONA DE DESCARGA (300x250 EN VIVO) -->
         <div class="ads-banner" style="min-height: 260px;">
             <script>
                 atOptions = {
@@ -380,10 +363,7 @@
         <div class="detalle-container" id="detalleSkinContenedor"></div>
     </div>
 
-
-    <!-- =======================================================
-         ANUNCIO FIJO INFERIOR (320x50 EN VIVO COMPARTIDO EN PIE DE PÁGINA)
-         ======================================================= -->
+    <!-- ANUNCIO FIJO INFERIOR -->
     <div class="ads-sticky-footer">
         <script>
             atOptions = {
@@ -397,10 +377,9 @@
         <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
     </div>
 
+    <!-- IFRAME OCULTO (Para descargar sin romper el catálogo) -->
+    <iframe id="iframeDescargaOculto" style="display:none;"></iframe>
 
-    <!-- =======================================================
-         LÓGICA DEL MOTOR JAVASCRIPT
-         ======================================================= -->
     <script>
         const SHEET_ID = '1OZvXWbNlcGxyeBU2soZvvSWnVNoguP17AIO20lYD0rE';
         const SHEET_TITLE = 'Hoja 1'; 
@@ -431,7 +410,7 @@
                         camion: fila.c[0] ? fila.c[0].v : 'Camión',
                         nombre: fila.c[1] ? fila.c[1].v : 'Skin Especial',
                         fotoMuestra: imgMuestra,
-                        linkDescarga: fila.c[5] ? fila.c[5].v : '#', // Lee la columna F limpia de Google Sheets
+                        linkDescarga: fila.c[5] ? fila.c[5].v : '#', 
                         categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros'
                     };
                 });
@@ -498,7 +477,10 @@
                         </button>
 
                         <div class="contador-box" id="cajaContador">
-                            <p class="contador-texto">Verificando servidores seguros... Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.</p>
+                            <p class="contador-texto" id="cuerpoMensaje">
+                                Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
+                                Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -507,15 +489,17 @@
             irAVista('vistaDetalle');
         }
 
-        // FUNCIÓN DEL CRONÓMETRO CON TU DIRECT LINK INYECTADO
+        // NUEVO SISTEMA ANTITRAMPA CON IFRAME INCORPORADO
         function iniciarContador(urlDescarga) {
-            // Se abre de forma obligatoria tu Direct Link de Adsterra en una pestaña nueva
-            window.open('https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea', '_blank'); 
-
             const boton = document.getElementById('btnIniciarFlujoDescarga');
             const cajaContador = document.getElementById('cajaContador');
             const numeroContador = document.getElementById('segundosAviso');
+            const cuerpoMensaje = document.getElementById('cuerpoMensaje');
             
+            // 1. Abrir anuncio en pestaña nueva
+            const ventanaAnuncio = window.open('https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea', '_blank'); 
+
+            // Mostrar el contador inmediatamente en tu catálogo
             boton.style.display = 'none'; 
             cajaContador.style.display = 'block'; 
             
@@ -525,15 +509,39 @@
                 tiempoRestante--;
                 numeroContador.innerText = tiempoRestante;
 
+                // SISTEMA ANTITRAMPA: Si cerró la pestaña del anuncio antes de que termine el tiempo
+                if (ventanaAnuncio && ventanaAnuncio.closed && tiempoRestante > 0) {
+                    clearInterval(intervalo);
+                    cuerpoMensaje.innerHTML = `
+                        <span class="material-icons" style="color:#ff3333; font-size:32px;">error_outline</span><br>
+                        <span style="color:#ff3333; font-weight:bold; font-size:15px;">¡DESCARGA CANCELADA!</span><br>
+                        Debes ver el anuncio completo por 6 segundos para reclamar la skin.
+                        <br><br>
+                        <button class="btn-download" style="margin-top:10px; padding:10px;" onclick="reintentarFlujo('${urlDescarga}')">Intentar de nuevo</button>
+                    `;
+                    return;
+                }
+
+                // Si se cumple el tiempo exitosamente con el anuncio abierto
                 if (tiempoRestante <= 0) {
                     clearInterval(intervalo);
                     
-                    // Al finalizar los 6 segundos, se ejecuta la descarga directa sin pedir correos
-                    window.location.href = urlDescarga;
+                    // DESCARGA INTELIGENTE SEGURA: Usa el iframe oculto en vez de romper la página
+                    document.getElementById('iframeDescargaOculto').src = urlDescarga;
 
-                    cajaContador.innerHTML = `<p class="contador-texto" style="color: #00ff00; font-weight: bold;">¡DESCARGA COMPLETADA!</p>`;
+                    cuerpoMensaje.innerHTML = `
+                        <span class="material-icons" style="color:#00ff00; font-size:32px;">check_circle</span><br>
+                        <p style="color: #00ff00; font-weight: bold; font-size:16px;">¡DESCARGA INICIADA!</p>
+                        Tu skin premium se está descargando en segundo plano. ¡Disfrútala!
+                    `;
                 }
             }, 1000);
+        }
+
+        function reintentarFlujo(urlDescarga) {
+            const contenedorBox = document.getElementById('cajaContador');
+            contenedorBox.style.display = 'none';
+            iniciarContador(urlDescarga);
         }
     </script>
 </body>
