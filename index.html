@@ -3,46 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKINS PRO HD</title>
+    <title>SKINS PRO</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Impact', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* TEXTURA DE LÁMINA ESTRIADA METALIZADA */
         body {
-            background-color: #0c0c0c;
+            background: 
+                linear-gradient(27deg, #121212 5px, transparent 5px) 0 5px,
+                linear-gradient(207deg, #121212 5px, transparent 5px) 10px 0,
+                linear-gradient(27deg, #1e1e1e 5px, transparent 5px) 0 10px,
+                linear-gradient(207deg, #1e1e1e 5px, transparent 5px) 10px 5px,
+                linear-gradient(90deg, #171717 10px, transparent 10px),
+                linear-gradient(#181818 25%, #151515 25%, #151515 50%, transparent 50%, transparent 75%, #202020 75%, #202020);
+            background-size: 20px 20px;
+            background-color: #151515;
             color: #ffffff;
-            padding-bottom: 80px; 
+            padding-bottom: 90px; 
         }
 
         header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
-            padding: 25px 15px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #151515 100%);
+            padding: 30px 15px;
             text-align: center;
-            border-bottom: 4px solid #ffcc00;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.7);
-            margin-bottom: 20px;
+            border-bottom: 4px solid #00ff66;
+            box-shadow: 0 0 20px #00ff6655, inset 0 -5px 15px rgba(0,0,0,0.9);
+            margin-bottom: 25px;
         }
 
+        /* LOGO TIPO 3D CON CORTE Y NEÓN VERDE */
         header h1 {
-            font-size: 26px;
-            font-weight: 900;
-            color: #ffcc00;
+            font-size: 42px;
+            letter-spacing: 3px;
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
+            text-transform: uppercase;
+            /* Efecto de relieve 3D con sombras multi-capa */
+            text-shadow: 
+                0 1px 0 #cccccc,
+                0 2px 0 #c5c5c5,
+                0 3px 0 #bbbbbb,
+                0 4px 0 #b1b1b1,
+                0 5px 0 #aaaaaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 0 15px #00ff66cc; /* Destello Neón Trasero */
         }
 
         header p {
-            font-size: 11px;
-            color: #888888;
-            margin-top: 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 10px;
+            color: #00ffff;
+            margin-top: 10px;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 6px #00ffffcc;
         }
 
         .ads-banner {
@@ -61,8 +90,9 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #111111;
-            border-top: 2px solid #ffcc00;
+            background-color: #050505;
+            border-top: 3px solid #00ff66;
+            box-shadow: 0 -5px 15px #00ff6633;
             text-align: center;
             padding: 5px 0;
             z-index: 9999;
@@ -70,7 +100,7 @@
 
         .vista {
             display: none;
-            animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.25s ease-in-out;
         }
 
         .vista-activa {
@@ -78,39 +108,83 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .menu-container {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            padding: 0 20px;
+            display: block;
+            width: 100%;
             max-width: 380px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
+        /* BOTONES DEL TABLERO EN VERDE NEÓN Y RELIEVE 3D */
         .menu-btn {
-            background: linear-gradient(135deg, #252525 0%, #161616 100%);
+            display: block;
+            width: 100%;
+            background: linear-gradient(180deg, #2a2a2a 0%, #121212 100%);
             color: #ffffff;
-            border: 1px solid #3a3a3a;
-            border-left: 6px solid #ffcc00; 
-            padding: 16px 20px;
-            border-radius: 10px;
+            border: 2px solid #00ff66;
+            border-radius: 30px;
+            padding: 14px 24px;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 16px;
+            letter-spacing: 1px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+            margin-bottom: 18px;
+            text-align: left;
+            position: relative;
+            /* Relieve mecánico inferior */
+            border-bottom: 6px solid #00b347;
+            box-shadow: 0 0 12px #00ff6622, 0 6px 10px rgba(0,0,0,0.7);
+            transition: all 0.1s ease;
         }
 
-        .menu-btn .btn-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .menu-btn:active {
+            border-bottom-width: 2px;
+            transform: translateY(4px);
+            box-shadow: 0 0 8px #00ff6644, 0 2px 4px rgba(0,0,0,0.9);
+        }
+
+        .btn-content-flex {
+            display: table;
+            width: 100%;
+        }
+
+        .btn-icon-cell {
+            display: table-cell;
+            vertical-align: middle;
+            width: 35px;
+            color: #00ff66;
+            text-shadow: 0 0 8px #00ff66;
+        }
+
+        .btn-text-cell {
+            display: table-cell;
+            vertical-align: middle;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 800;
+        }
+
+        .btn-text-cell span {
+            font-size: 11px;
+            color: #00ffff;
+            display: block;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            margin-top: 2px;
+            text-shadow: 0 0 4px #00ffff99;
+        }
+
+        .btn-arrow-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            width: 25px;
+            color: #00ffff;
+            text-shadow: 0 0 8px #00ffff;
         }
 
         .btn-back-container {
@@ -120,58 +194,79 @@
         }
 
         .btn-back {
-            background-color: #1e1e1e;
-            color: #ffcc00;
-            border: 1px solid #3a3a3a;
-            padding: 10px 18px;
-            border-radius: 8px;
+            background-color: #0a0a0a;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            box-shadow: 0 0 8px #00ffff33;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         .grid-skins {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
             max-width: 500px;
             margin: 0 auto;
             padding: 0 15px;
         }
 
+        /* TARJETAS DE SKINS */
         .skin-item-card {
-            background-color: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
+            background: linear-gradient(180deg, #222 0%, #111 100%);
+            border: 2px solid #252525;
+            border-radius: 16px;
+            display: table;
+            width: 100%;
             padding: 12px;
-            gap: 15px;
+            margin-bottom: 15px;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .skin-item-card:active {
+            border-color: #00ff66;
+            box-shadow: 0 0 10px #00ff6644;
+        }
+
+        .thumb-cell {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100px;
         }
 
         .skin-item-thumb {
             width: 90px;
             height: 65px;
-            background-color: #222;
-            border-radius: 6px;
+            background-color: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
             object-fit: cover;
         }
 
-        .skin-item-info h4 {
-            font-size: 15px;
-            color: #fff;
-            margin-bottom: 4px;
+        .info-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 10px;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        .skin-item-info p {
-            font-size: 11px;
-            color: #ffcc00;
+        .info-cell h4 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 4px;
             font-weight: bold;
+        }
+
+        .info-cell p {
+            font-size: 11px;
+            color: #00ff66;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .detalle-container {
@@ -181,17 +276,18 @@
         }
 
         .detalle-card {
-            background-color: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 14px;
+            background-color: #0f0f0f;
+            border: 2px solid #00ff66;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            box-shadow: 0 0 20px #00ff6622, 0 10px 20px rgba(0,0,0,0.8);
         }
 
         .detalle-img-box {
             width: 100%;
             height: 230px;
-            position: relative;
+            background-color: #000;
+            border-bottom: 2px solid #1a1a1a;
         }
 
         .detalle-img-box img {
@@ -202,103 +298,156 @@
 
         .detalle-info {
             padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         .detalle-info h2 {
-            font-size: 20px;
+            font-size: 22px;
             color: #fff;
             margin-bottom: 6px;
+            font-weight: 800;
         }
 
         .detalle-info p {
             font-size: 13px;
-            color: #ffcc00;
+            color: #00ffff;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffff33;
         }
 
+        /* BOTÓN DE DESCARGA EN CAMPO VERDE NEÓN ACCIONABLE */
         .btn-download {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+            background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
             color: #000000;
-            text-decoration: none;
+            border: none;
+            border-bottom: 5px solid #008033;
             padding: 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 15px;
+            border-radius: 30px;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: 1px;
             text-align: center;
-            box-shadow: 0 5px 10px rgba(255, 153, 0, 0.2);
             cursor: pointer;
             width: 100%;
-            border: none;
+            box-shadow: 0 0 15px #00ff6634;
+            display: block;
+            transition: all 0.1s ease;
+        }
+
+        .btn-download:active {
+            border-bottom-width: 1px;
+            transform: translateY(4px);
         }
 
         .contador-box {
-            background-color: #222;
-            border: 1px solid #ffcc00;
+            background-color: #050505;
+            border: 2px dashed #00ff66;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
             margin-top: 15px;
             display: none;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
         }
 
         .contador-texto {
-            font-size: 14px;
+            font-size: 13px;
             color: #fff;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .contador-numero {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ffcc00;
+            font-size: 24px;
+            font-weight: 900;
+            color: #00ff66;
+            text-shadow: 0 0 8px #00ff66;
         }
 
         #loading {
             text-align: center;
-            color: #ffcc00;
+            color: #00ff66;
             font-weight: bold;
-            padding: 20px;
+            padding: 40px;
+            font-size: 18px;
+            text-shadow: 0 0 10px #00ff66cc;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><span class="material-icons" style="font-size: 30px;">local_shipping</span> SKINS PRO HD</h1>
-        <p>PREMIUM TEMPLATES FOR TRUCKERS OF EUROPE 3</p>
+        <h1>SKINS PRO</h1>
+        <p>CONCESIONARIO OFICIAL TOE3</p>
     </header>
 
-    <div id="loading">SINTONIZANDO MOTOR DE DATOS...</div>
+    <div id="loading">INYECTANDO NITRÓGENO AL MOTOR...</div>
 
+    <!-- VISTA 1: MENÚ CON AMBOS NOMBRES OPTIMIZADOS -->
     <div id="vistaMenu" class="vista">
         <div class="menu-container">
-            <button class="menu-btn" onclick="mostrarCategoria('paises')">
-                <div class="btn-content">
-                    <span class="material-icons" style="color: #ffcc00;">public</span>
-                    <span>Skins de Países</span>
+            <button class="menu-btn" onclick="mostrarCategoria('moon_actros')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">MERCEDES ACTROS <span>(MOON ACTROS)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
                 </div>
-                <span class="material-icons icon-arrow">chevron_right</span>
             </button>
 
-            <button class="menu-btn" onclick="mostrarCategoria('empresas')">
-                <div class="btn-content">
-                    <span class="material-icons" style="color: #ffcc00;">business</span>
-                    <span>Empresas Reales</span>
+            <button class="menu-btn" onclick="mostrarCategoria('stream_r')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">SCANIA R / STREAMLINE <span>(STREAM R)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
                 </div>
-                <span class="material-icons icon-arrow">chevron_right</span>
             </button>
 
-            <button class="menu-btn" onclick="mostrarCategoria('anime')">
-                <div class="btn-content">
-                    <span class="material-icons" style="color: #ffcc00;">palette</span>
-                    <span>Modelos Anime</span>
+            <button class="menu-btn" onclick="mostrarCategoria('stream_s')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">SCANIA S / NEW GEN <span>(STREAM S)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
                 </div>
-                <span class="material-icons icon-arrow">chevron_right</span>
+            </button>
+
+            <button class="menu-btn" onclick="mostrarCategoria('vulcan_fh')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">VOLVO FH16 <span>(VULCAN FH)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
+                </div>
+            </button>
+
+            <button class="menu-btn" onclick="mostrarCategoria('mena_tgx')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">MAN TGX EURO 6 <span>(MENA TGX)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
+                </div>
+            </button>
+
+            <button class="menu-btn" onclick="mostrarCategoria('dawn_xf')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">DAF XF EURO 6 <span>(DAWN XF)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
+                </div>
+            </button>
+
+            <button class="menu-btn" onclick="mostrarCategoria('renor_t')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">RENAULT T-RANGE <span>(RENOR T)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
+                </div>
+            </button>
+
+            <button class="menu-btn" onclick="mostrarCategoria('iva_sway')">
+                <div class="btn-content-flex">
+                    <div class="btn-icon-cell"><span class="material-icons">local_shipping</span></div>
+                    <div class="btn-text-cell">IVECO S-WAY <span>(IVA S-WAY)</span></div>
+                    <div class="btn-arrow-cell"><span class="material-icons">chevron_right</span></div>
+                </div>
             </button>
         </div>
 
@@ -316,10 +465,11 @@
         </div>
     </div>
 
+    <!-- VISTA 2: LISTADO DE TEXTURAS -->
     <div id="vistaCategoria" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" onclick="irAVista('vistaMenu')">
-                <span class="material-icons">arrow_back</span> Volver al Menú
+                <span class="material-icons">arrow_back</span> ATRÁS
             </button>
         </div>
 
@@ -339,10 +489,11 @@
         </div>
     </div>
 
+    <!-- VISTA 3: DETALLE Y FLUJO ANTITRAMPA -->
     <div id="vistaDetalle" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" id="btnVolverCat">
-                <span class="material-icons">arrow_back</span> Volver al Listado
+                <span class="material-icons">arrow_back</span> VOLVER
             </button>
         </div>
 
@@ -362,6 +513,7 @@
         <div class="detalle-container" id="detalleSkinContenedor"></div>
     </div>
 
+    <!-- BANNER FIJO INFERIOR CON LUZ NEÓN -->
     <div class="ads-sticky-footer">
         <script>
             atOptions = {
@@ -404,11 +556,11 @@
                     }
 
                     return {
-                        camion: fila.c[0] ? fila.c[0].v : 'Camión',
-                        nombre: fila.c[1] ? fila.c[1].v : 'Skin Especial',
+                        camion: fila.c[0] ? fila.c[0].v : 'Modelo Base',
+                        nombre: fila.c[1] ? fila.c[1].v : 'Skin Premium',
                         fotoMuestra: imgMuestra,
                         linkDescarga: fila.c[5] ? fila.c[5].v : '#', 
-                        categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros'
+                        categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros' 
                     };
                 });
                 
@@ -416,7 +568,7 @@
                 irAVista('vistaMenu');
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById('loading').innerText = "ERROR AL SINTONIZAR DATOS.";
+                document.getElementById('loading').innerText = "ERROR EN EL SISTEMA DE DATOS.";
             }
         }
 
@@ -430,7 +582,7 @@
             const skinsFiltradas = listaSkins.filter(skin => skin.categoria === catSeleccionada);
 
             if(skinsFiltradas.length === 0) {
-                contenedor.innerHTML = `<div style="text-align:center; padding:40px; color:#666;">PRÓXIMAMENTE MÁS PIELES...</div>`;
+                contenedor.innerHTML = `<div style="text-align:center; padding:50px; color:#aaa; font-family:'Segoe UI',sans-serif; font-size:14px; text-shadow:0 0 5px rgba(0,0,0,0.5);">PRÓXIMAMENTE NUEVAS SKINS PARA ESTE MODELO...</div>`;
                 irAVista('vistaCategoria');
                 return;
             }
@@ -438,8 +590,10 @@
             skinsFiltradas.forEach((skin, index) => {
                 const itemHTML = `
                     <div class="skin-item-card" onclick="verDetalleSkin('${catSeleccionada}', ${index})">
-                        <img src="${skin.fotoMuestra}" class="skin-item-thumb" alt="Thumb">
-                        <div class="skin-item-info">
+                        <div class="thumb-cell">
+                            <img src="${skin.fotoMuestra}" class="skin-item-thumb" alt="Thumb">
+                        </div>
+                        <div class="info-cell">
                             <h4>${skin.nombre}</h4>
                             <p>${skin.camion}</p>
                         </div>
@@ -463,21 +617,21 @@
             contenedor.innerHTML = `
                 <div class="detalle-card">
                     <div class="detalle-img-box">
-                        <img src="${skin.fotoMuestra}" alt="Camión Completo">
+                        <img src="${skin.fotoMuestra}" alt="Camión">
                     </div>
                     <div class="detalle-info">
                         <h2>${skin.nombre}</h2>
-                        <p>Modelo: ${skin.camion}</p>
+                        <p>COMPATIBLE CON: ${skin.camion}</p>
                         
                         <button class="btn-download" id="btnIniciarFlujoDescarga" onclick="iniciarContador('${skin.linkDescarga}')">
-                            <span class="material-icons">cloud_download</span> DESCARGAR PLANTILLA HD
+                            DESCARGAR TEXTURA HD
                         </button>
 
                         <div class="contador-box" id="cajaContador">
                             <div id="cuerpoMensaje">
                                 <p class="contador-texto">
-                                    Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
-                                    Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                                    Abriendo servidor seguro... Mantén la pestaña abierta.<br>
+                                    Cargando enlaces en <span class="contador-numero" id="segundosAviso">6</span> segundos.
                                 </p>
                             </div>
                         </div>
@@ -488,24 +642,25 @@
             irAVista('vistaDetalle');
         }
 
-        // SISTEMA REPARADO DE RESPUESTA AUTOMÁTICA Y REINTENTOS
         function iniciarContador(urlDescarga) {
             const boton = document.getElementById('btnIniciarFlujoDescarga');
             const cajaContador = document.getElementById('cajaContador');
             const cuerpoMensaje = document.getElementById('cuerpoMensaje');
             
-            // Forzar el reinicio completo de la interfaz del contador antes de disparar
             cuerpoMensaje.innerHTML = `
                 <p class="contador-texto">
-                    Abriendo servidor de anuncios... Mantén la pestaña abierta.<br>
-                    Espere <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                    Abriendo servidor seguro... Mantén la pestaña abierta.<br>
+                    Cargando enlaces en <span class="contador-numero" id="segundosAviso">6</span> segundos.
                 </p>
             `;
 
-            if (boton) boton.style.display = 'none'; 
+            if (boton) {
+                boton.style.visibility = 'hidden';
+                boton.style.height = '0px';
+                boton.style.padding = '0px';
+            }
             cajaContador.style.display = 'block'; 
             
-            // Disparar tu Direct Link en pestaña nueva
             const urlAnuncio = 'https://www.effectivecpmnetwork.com/p2y3r3phx?key=0a9217a59faa68685a1f87c8ae5fc3ea';
             const ventanaAnuncio = window.open(urlAnuncio, '_blank'); 
 
@@ -519,41 +674,35 @@
                     numeroActualizado.innerText = tiempoRestante;
                 }
 
-                // DETECTOR ANTITRAMPA OPTIMIZADO
                 if (ventanaAnuncio && ventanaAnuncio.closed && tiempoRestante > 0) {
                     clearInterval(intervalo);
                     cuerpoMensaje.innerHTML = `
-                        <span class="material-icons" style="color:#ff3333; font-size:32px;">error_outline</span><br>
-                        <span style="color:#ff3333; font-weight:bold; font-size:15px;">¡DESCARGA CANCELADA!</span><br>
-                        Debes ver el anuncio completo por 6 segundos para reclamar la skin.
+                        <span class="material-icons" style="color:#ff3333; font-size:32px; text-shadow:0 0 10px #ff3333;">error_outline</span><br>
+                        <span style="color:#ff3333; font-weight:bold; font-size:15px;">¡VERIFICACIÓN FALLIDA!</span><br>
+                        Debes interactuar con el servidor publicitario por 6 segundos.
                         <br><br>
-                        <button class="btn-download" style="margin-top:10px; padding:12px; background: #ffcc00; color:#000;" onclick="reintentarFlujo('${urlDescarga}')">Intentar de nuevo</button>
+                        <button class="btn-download" style="margin-top:10px; padding:12px; background: linear-gradient(180deg, #00ff66 0%, #00b347 100%); color:#000; border-bottom:3px solid #008033;" onclick="reintentarFlujo('${urlDescarga}')">REINTENTAR</button>
                     `;
                     return;
                 }
 
-                // RECOMPENSA COMPLETA AL LLEGAR A CERO
                 if (tiempoRestante <= 0) {
                     clearInterval(intervalo);
                     
-                    // Descarga directa e invisible usando el iframe seguro
                     document.getElementById('iframeDescargaOculto').src = urlDescarga;
 
                     cuerpoMensaje.innerHTML = `
-                        <span class="material-icons" style="color:#00ff00; font-size:32px;">check_circle</span><br>
-                        <p style="color: #00ff00; font-weight: bold; font-size:16px;">¡DESCARGA INICIADA!</p>
-                        Tu skin premium se está descargando en segundo plano. ¡Disfrútala!
+                        <span class="material-icons" style="color:#00ff00; font-size:32px; text-shadow:0 0 10px #00ff00;">check_circle</span><br>
+                        <p style="color: #00ff00; font-weight: bold; font-size:16px; letter-spacing:1px;">DESCARGA INICIADA</p>
+                        El archivo de textura HD se está guardando en tu memoria.
                     `;
                 }
             }, 1000);
         }
 
-        // CONTROLADOR DE REINTENTO SIN TRABAS EN EL NAVEGADOR
         function reintentarFlujo(urlDescarga) {
             const cajaContador = document.getElementById('cajaContador');
-            // Escondemos la caja un instante para forzar al navegador a desbloquear la acción de clic
             cajaContador.style.display = 'none';
-            
             setTimeout(() => {
                 iniciarContador(urlDescarga);
             }, 150);
