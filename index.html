@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKINS PRO</title>
+    <title>SKINS PRO HD</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         * {
@@ -13,7 +13,7 @@
             font-family: 'Impact', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* TEXTURA DE LÁMINA ESTRIADA METALIZADA */
+        /* TEXTURA DE LÁMINA ESTRIADA METALIZADA CON LUZ NEÓN */
         body {
             background: 
                 linear-gradient(27deg, #121212 5px, transparent 5px) 0 5px,
@@ -37,7 +37,6 @@
             margin-bottom: 25px;
         }
 
-        /* LOGO TIPO 3D CON CORTE Y NEÓN VERDE */
         header h1 {
             font-size: 42px;
             letter-spacing: 3px;
@@ -47,7 +46,6 @@
             justify-content: center;
             gap: 10px;
             text-transform: uppercase;
-            /* Efecto de relieve 3D con sombras multi-capa */
             text-shadow: 
                 0 1px 0 #cccccc,
                 0 2px 0 #c5c5c5,
@@ -60,7 +58,7 @@
                 0 3px 5px rgba(0,0,0,.2),
                 0 5px 10px rgba(0,0,0,.25),
                 0 10px 10px rgba(0,0,0,.2),
-                0 0 15px #00ff66cc; /* Destello Neón Trasero */
+                0 0 15px #00ff66cc;
         }
 
         header p {
@@ -120,7 +118,7 @@
             padding: 0 20px;
         }
 
-        /* BOTONES DEL TABLERO EN VERDE NEÓN Y RELIEVE 3D */
+        /* BOTONES ORIGINALES CON AMBOS NOMBRES */
         .menu-btn {
             display: block;
             width: 100%;
@@ -136,7 +134,6 @@
             margin-bottom: 18px;
             text-align: left;
             position: relative;
-            /* Relieve mecánico inferior */
             border-bottom: 6px solid #00b347;
             box-shadow: 0 0 12px #00ff6622, 0 6px 10px rgba(0,0,0,0.7);
             transition: all 0.1s ease;
@@ -214,118 +211,59 @@
             padding: 0 15px;
         }
 
-        /* TARJETAS DE SKINS */
-        .skin-item-card {
-            background: linear-gradient(180deg, #222 0%, #111 100%);
-            border: 2px solid #252525;
-            border-radius: 16px;
-            display: table;
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-        }
-        
-        .skin-item-card:active {
-            border-color: #00ff66;
-            box-shadow: 0 0 10px #00ff6644;
-        }
-
-        .thumb-cell {
-            display: table-cell;
-            vertical-align: middle;
-            width: 100px;
-        }
-
-        .skin-item-thumb {
-            width: 90px;
-            height: 65px;
-            background-color: #000;
-            border: 1px solid #333;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .info-cell {
-            display: table-cell;
-            vertical-align: middle;
-            padding-left: 10px;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .info-cell h4 {
-            font-size: 16px;
-            color: #fff;
-            margin-bottom: 4px;
-            font-weight: bold;
-        }
-
-        .info-cell p {
-            font-size: 11px;
-            color: #00ff66;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .detalle-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .detalle-card {
-            background-color: #0f0f0f;
-            border: 2px solid #00ff66;
+        /* NUEVA TARJETA COMPLETA CON DISEÑO INTEGRADO (FOTO, INFO Y BOTÓN) */
+        .skin-block-card {
+            background: linear-gradient(180deg, #1f1f1f 0%, #0f0f0f 100%);
+            border: 2px solid #282828;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 20px #00ff6622, 0 10px 20px rgba(0,0,0,0.8);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.8);
         }
 
-        .detalle-img-box {
+        .card-img-box {
             width: 100%;
-            height: 230px;
+            height: 210px;
             background-color: #000;
             border-bottom: 2px solid #1a1a1a;
         }
 
-        .detalle-img-box img {
+        .card-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .detalle-info {
-            padding: 20px;
+        .card-body {
+            padding: 16px;
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .detalle-info h2 {
-            font-size: 22px;
+        .card-body h3 {
+            font-size: 19px;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 800;
         }
 
-        .detalle-info p {
-            font-size: 13px;
+        .card-body p {
+            font-size: 12px;
             color: #00ffff;
-            margin-bottom: 20px;
             font-weight: bold;
-            text-shadow: 0 0 5px #00ffff33;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        /* BOTÓN DE DESCARGA EN CAMPO VERDE NEÓN ACCIONABLE */
+        /* BOTÓN DE DESCARGA DIRECTO */
         .btn-download {
             background: linear-gradient(180deg, #00ff66 0%, #00b347 100%);
             color: #000000;
             border: none;
             border-bottom: 5px solid #008033;
-            padding: 16px;
+            padding: 14px;
             border-radius: 30px;
             font-weight: 900;
-            font-size: 16px;
+            font-size: 15px;
             letter-spacing: 1px;
             text-align: center;
             cursor: pointer;
@@ -340,25 +278,26 @@
             transform: translateY(4px);
         }
 
+        /* ENTORNO CONTADOR ANTITRAMPA */
         .contador-box {
             background-color: #050505;
             border: 2px dashed #00ff66;
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
             display: none;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
         }
 
         .contador-texto {
-            font-size: 13px;
+            font-size: 12px;
             color: #fff;
             line-height: 1.5;
         }
 
         .contador-numero {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
             color: #00ff66;
             text-shadow: 0 0 8px #00ff66;
@@ -383,7 +322,7 @@
 
     <div id="loading">INYECTANDO NITRÓGENO AL MOTOR...</div>
 
-    <!-- VISTA 1: MENÚ CON AMBOS NOMBRES OPTIMIZADOS -->
+    <!-- VISTA 1: MENÚ DE CAMIONES -->
     <div id="vistaMenu" class="vista">
         <div class="menu-container">
             <button class="menu-btn" onclick="mostrarCategoria('moon_actros')">
@@ -465,7 +404,7 @@
         </div>
     </div>
 
-    <!-- VISTA 2: LISTADO DE TEXTURAS -->
+    <!-- VISTA 2: LISTADO DE SKINS DIRECTO CON BOTÓN DE DESCARGA -->
     <div id="vistaCategoria" class="vista">
         <div class="btn-back-container">
             <button class="btn-back" onclick="irAVista('vistaMenu')">
@@ -473,30 +412,7 @@
             </button>
         </div>
 
-        <div class="grid-skins" id="listaSkinsContenedor"></div>
-        
-        <div class="ads-banner">
-            <script>
-                atOptions = {
-                    'key' : '20622febebc58aceaadca806e30f7816',
-                    'format' : 'iframe',
-                    'height' : 50,
-                    'width' : 320,
-                    'params' : {}
-                };
-            </script>
-            <script src="https://www.highperformanceformat.com/20622febebc58aceaadca806e30f7816/invoke.js"></script>
-        </div>
-    </div>
-
-    <!-- VISTA 3: DETALLE Y FLUJO ANTITRAMPA -->
-    <div id="vistaDetalle" class="vista">
-        <div class="btn-back-container">
-            <button class="btn-back" id="btnVolverCat">
-                <span class="material-icons">arrow_back</span> VOLVER
-            </button>
-        </div>
-
+        <!-- AQUÍ SE GENERAN LAS ANUNCIOS NATIVOS INTERMEDIOS -->
         <div class="ads-banner" style="min-height: 260px;">
             <script>
                 atOptions = {
@@ -510,10 +426,10 @@
             <script src="https://www.highperformanceformat.com/26374dcab12f0a151fa1869a67a237cd/invoke.js"></script>
         </div>
 
-        <div class="detalle-container" id="detalleSkinContenedor"></div>
+        <div class="grid-skins" id="listaSkinsContenedor"></div>
     </div>
 
-    <!-- BANNER FIJO INFERIOR CON LUZ NEÓN -->
+    <!-- BANNER FIJO INFERIOR NEÓN -->
     <div class="ads-sticky-footer">
         <script>
             atOptions = {
@@ -535,7 +451,7 @@
         const URL_SHEET = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_TITLE}`;
 
         let listaSkins = [];
-        let categoriaActual = '';
+        let intervalosActivos = {};
 
         function irAVista(idVista) {
             document.querySelectorAll('.vista').forEach(v => v.classList.remove('vista-activa'));
@@ -549,17 +465,18 @@
                 const jsonLimpio = JSON.parse(textoData.substr(47).slice(0, -2));
                 const filas = jsonLimpio.table.rows;
 
-                listaSkins = filas.map(fila => {
+                listaSkins = filas.map((fila, index) => {
                     let imgMuestra = fila.c[2] ? fila.c[2].v : 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
-                    if (imgMuestra.trim() === "") {
+                    if (!imgMuestra || imgMuestra.trim() === "") {
                         imgMuestra = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600';
                     }
 
                     return {
+                        idUnico: index,
                         camion: fila.c[0] ? fila.c[0].v : 'Modelo Base',
                         nombre: fila.c[1] ? fila.c[1].v : 'Skin Premium',
                         fotoMuestra: imgMuestra,
-                        linkDescarga: fila.c[5] ? fila.c[5].v : '#', 
+                        linkDescarga: fila.c[5] ? fila.c[5].v : '#', // Columna F (Link_Limpio)
                         categoria: fila.c[4] ? fila.c[4].v.trim().toLowerCase() : 'otros' 
                     };
                 });
@@ -575,10 +492,15 @@
         cargarSkinsDesdeSheets();
 
         function mostrarCategoria(catSeleccionada) {
-            categoriaActual = catSeleccionada;
             const contenedor = document.getElementById('listaSkinsContenedor');
             contenedor.innerHTML = ''; 
             
+            // Limpiar cualquier contador que haya quedado corriendo de antes
+            for (let id in intervalosActivos) {
+                clearInterval(intervalosActivos[id]);
+            }
+            intervalosActivos = {};
+
             const skinsFiltradas = listaSkins.filter(skin => skin.categoria === catSeleccionada);
 
             if(skinsFiltradas.length === 0) {
@@ -587,77 +509,51 @@
                 return;
             }
 
-            skinsFiltradas.forEach((skin, index) => {
-                const itemHTML = `
-                    <div class="skin-item-card" onclick="verDetalleSkin('${catSeleccionada}', ${index})">
-                        <div class="thumb-cell">
-                            <img src="${skin.fotoMuestra}" class="skin-item-thumb" alt="Thumb">
+            skinsFiltradas.forEach((skin) => {
+                const cardHTML = `
+                    <div class="skin-block-card">
+                        <div class="card-img-box">
+                            <img src="${skin.fotoMuestra}" alt="Camion Skin">
                         </div>
-                        <div class="info-cell">
-                            <h4>${skin.nombre}</h4>
-                            <p>${skin.camion}</p>
+                        <div class="card-body">
+                            <h3>${skin.nombre}</h3>
+                            <p>COMPATIBLE CON: ${skin.camion}</p>
+                            
+                            <button class="btn-download" id="btnDescarga_${skin.idUnico}" onclick="iniciarContadorCard('${skin.linkDescarga}', ${skin.idUnico})">
+                                DESCARGAR AHORA
+                            </button>
+
+                            <div class="contador-box" id="cajaContador_${skin.idUnico}">
+                                <div id="cuerpoMensaje_${skin.idUnico}">
+                                    <p class="contador-texto">
+                                        Abriendo servidor seguro... Mantén la pestaña abierta.<br>
+                                        Cargando enlaces en <span class="contador-numero" id="segundosAviso_${skin.idUnico}">6</span> segundos.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `;
-                contenedor.innerHTML += itemHTML;
+                contenedor.innerHTML += cardHTML;
             });
 
             irAVista('vistaCategoria');
         }
 
-        function verDetalleSkin(cat, index) {
-            const skinsFiltradas = listaSkins.filter(skin => skin.categoria === cat);
-            const skin = skinsFiltradas[index];
-            
-            document.getElementById('btnVolverCat').onclick = function() {
-                mostrarCategoria(cat);
-            };
-
-            const contenedor = document.getElementById('detalleSkinContenedor');
-            contenedor.innerHTML = `
-                <div class="detalle-card">
-                    <div class="detalle-img-box">
-                        <img src="${skin.fotoMuestra}" alt="Camión">
-                    </div>
-                    <div class="detalle-info">
-                        <h2>${skin.nombre}</h2>
-                        <p>COMPATIBLE CON: ${skin.camion}</p>
-                        
-                        <button class="btn-download" id="btnIniciarFlujoDescarga" onclick="iniciarContador('${skin.linkDescarga}')">
-                            DESCARGAR TEXTURA HD
-                        </button>
-
-                        <div class="contador-box" id="cajaContador">
-                            <div id="cuerpoMensaje">
-                                <p class="contador-texto">
-                                    Abriendo servidor seguro... Mantén la pestaña abierta.<br>
-                                    Cargando enlaces en <span class="contador-numero" id="segundosAviso">6</span> segundos.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            irAVista('vistaDetalle');
-        }
-
-        function iniciarContador(urlDescarga) {
-            const boton = document.getElementById('btnIniciarFlujoDescarga');
-            const cajaContador = document.getElementById('cajaContador');
-            const cuerpoMensaje = document.getElementById('cuerpoMensaje');
+        function iniciarContadorCard(urlDescarga, idUnico) {
+            const boton = document.getElementById(`btnDescarga_${idUnico}`);
+            const cajaContador = document.getElementById(`cajaContador_${idUnico}`);
+            const cuerpoMensaje = document.getElementById(`cuerpoMensaje_${idUnico}`);
             
             cuerpoMensaje.innerHTML = `
                 <p class="contador-texto">
                     Abriendo servidor seguro... Mantén la pestaña abierta.<br>
-                    Cargando enlaces en <span class="contador-numero" id="segundosAviso">6</span> segundos.
+                    Cargando enlaces en <span class="contador-numero" id="segundosAviso_${idUnico}">6</span> segundos.
                 </p>
             `;
 
             if (boton) {
-                boton.style.visibility = 'hidden';
-                boton.style.height = '0px';
-                boton.style.padding = '0px';
+                boton.style.display = 'none';
             }
             cajaContador.style.display = 'block'; 
             
@@ -666,45 +562,46 @@
 
             let tiempoRestante = 6;
 
-            const intervalo = setInterval(() => {
+            intervalosActivos[idUnico] = setInterval(() => {
                 tiempoRestante--;
                 
-                const numeroActualizado = document.getElementById('segundosAviso');
+                const numeroActualizado = document.getElementById(`segundosAviso_${idUnico}`);
                 if (numeroActualizado) {
                     numeroActualizado.innerText = tiempoRestante;
                 }
 
+                // SI CIERRA EL ANUNCIO ANTES DE TIEMPO -> ADVERTENCIA Y BOTÓN DE REINTENTAR
                 if (ventanaAnuncio && ventanaAnuncio.closed && tiempoRestante > 0) {
-                    clearInterval(intervalo);
+                    clearInterval(intervalosActivos[idUnico]);
                     cuerpoMensaje.innerHTML = `
-                        <span class="material-icons" style="color:#ff3333; font-size:32px; text-shadow:0 0 10px #ff3333;">error_outline</span><br>
-                        <span style="color:#ff3333; font-weight:bold; font-size:15px;">¡VERIFICACIÓN FALLIDA!</span><br>
-                        Debes interactuar con el servidor publicitario por 6 segundos.
-                        <br><br>
-                        <button class="btn-download" style="margin-top:10px; padding:12px; background: linear-gradient(180deg, #00ff66 0%, #00b347 100%); color:#000; border-bottom:3px solid #008033;" onclick="reintentarFlujo('${urlDescarga}')">REINTENTAR</button>
+                        <span class="material-icons" style="color:#ff3333; font-size:28px; text-shadow:0 0 10px #ff3333;">error_outline</span><br>
+                        <span style="color:#ff3333; font-weight:bold; font-size:14px;">¡VERIFICACIÓN FALLIDA!</span><br>
+                        <p class="contador-texto" style="margin-bottom:8px;">Debes interactuar con el servidor publicitario por 6 segundos.</p>
+                        <button class="btn-download" style="padding:10px; font-size:13px; background: linear-gradient(180deg, #00ff66 0%, #00b347 100%); color:#000; border-bottom:3px solid #008033;" onclick="reintentarFlujoCard('${urlDescarga}', ${idUnico})">REINTENTAR DESCARGA</button>
                     `;
                     return;
                 }
 
+                // COMPLETÓ LOS 6 SEGUNDOS EXITOSAMENTE
                 if (tiempoRestante <= 0) {
-                    clearInterval(intervalo);
+                    clearInterval(intervalosActivos[idUnico]);
                     
                     document.getElementById('iframeDescargaOculto').src = urlDescarga;
 
                     cuerpoMensaje.innerHTML = `
-                        <span class="material-icons" style="color:#00ff00; font-size:32px; text-shadow:0 0 10px #00ff00;">check_circle</span><br>
-                        <p style="color: #00ff00; font-weight: bold; font-size:16px; letter-spacing:1px;">DESCARGA INICIADA</p>
-                        El archivo de textura HD se está guardando en tu memoria.
+                        <span class="material-icons" style="color:#00ff00; font-size:28px; text-shadow:0 0 10px #00ff00;">check_circle</span><br>
+                        <p style="color: #00ff00; font-weight: bold; font-size:15px; letter-spacing:1px;">DESCARGA INICIADA</p>
+                        <p class="contador-texto">El archivo de textura HD se está guardando.</p>
                     `;
                 }
             }, 1000);
         }
 
-        function reintentarFlujo(urlDescarga) {
-            const cajaContador = document.getElementById('cajaContador');
+        function reintentarFlujoCard(urlDescarga, idUnico) {
+            const cajaContador = document.getElementById(`cajaContador_${idUnico}`);
             cajaContador.style.display = 'none';
             setTimeout(() => {
-                iniciarContador(urlDescarga);
+                iniciarContadorCard(urlDescarga, idUnico);
             }, 150);
         }
     </script>
